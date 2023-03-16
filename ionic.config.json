@@ -1,0 +1,7 @@
+{
+  "name": "osrt",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
