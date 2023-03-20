@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
+// Services
+import { SettingsService } from 'src/app/services/settings.service';
+
 @Component({
   selector: 'app-settings',
   templateUrl: './settings.page.html',
@@ -9,10 +12,16 @@ import { TranslateService } from '@ngx-translate/core';
 export class SettingsPage implements OnInit {
 
   constructor(
-    private translate: TranslateService
-    ) { }
+    public translate: TranslateService,
+    public settings: SettingsService
+  ) { }
 
   ngOnInit() {
+  }
+
+
+  public setNewLanguage(e: any) {
+    this.settings.setNewLanguage(e.detail.value);
   }
 
 }

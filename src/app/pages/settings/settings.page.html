@@ -9,16 +9,34 @@
 
 <ion-content>
 
+  <!-- Appearence settings -->
   <ion-card>
     <ion-card-header>
       <ion-card-subtitle>{{ 'SETTINGS.THEME.TITLE' | translate }}</ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
       <ion-list>
-        <ion-item>
-          <ion-label>{{ 'HOME.TITLE' | translate }}</ion-label>
+        <ion-item lines="none">
+          <ion-label>{{ 'SETTINGS.THEME.DARK' | translate }}</ion-label>
           <!-- <ion-toggle [ngModel]="darkMode" (ngModelChange)="toggleDarkMode()" ></ion-toggle> -->
-          <ion-toggle ></ion-toggle>
+          <ion-toggle></ion-toggle>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Content settings -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>{{ 'SETTINGS.CONTENT.TITLE' | translate }}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item lines="none">
+          <ion-label>{{ 'SETTINGS.CONTENT.LANG' | translate }}</ion-label>
+          <ion-select interface="popover" [interfaceOptions]="{ showBackdrop: true }" value="en" (ionChange)="setNewLanguage($event)">
+            <ion-select-option *ngFor="let language of settings.supportedLanguages" [value]="language.short">{{ language.long }}</ion-select-option>
+          </ion-select>
         </ion-item>
       </ion-list>
     </ion-card-content>

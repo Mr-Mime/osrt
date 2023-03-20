@@ -10,6 +10,10 @@
       "ON"    : "On",
       "OFF"   : "Off",
       "System": "System"
+    },
+    "CONTENT" : {
+      "TITLE" : "Content",
+      "LANG"  : "Language"
     }
   }
 }
