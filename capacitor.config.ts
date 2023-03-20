@@ -1,7 +1,7 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
+  appId: 'app.osrt.osrt',
   appName: 'osrt',
   webDir: 'www',
   bundledWebRuntime: false
