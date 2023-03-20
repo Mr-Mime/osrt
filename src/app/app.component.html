@@ -1,3 +1,20 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-menu contentId="home">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>OSRT</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-menu-toggle auto-hide="false"  *ngFor="let entry of menuEntries">
+          <ion-item detail="false" [routerLink]="entry.path" [lines]="entry.path == 'home' ? 'inset' : 'none'">
+            <ion-icon [name]="entry.icon" slot="start" color='primary'></ion-icon>
+            <ion-label>{{ entry.name | translate }}</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="home"></ion-router-outlet>
 </ion-app>

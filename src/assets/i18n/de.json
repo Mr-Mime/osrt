@@ -1,5 +1,15 @@
 {
   "HOME" : {
-    "TITLE": "Sportarten"
+    "TITLE" : "Sportarten"
+  },
+  "SETTINGS" : {
+    "TITLE" : "Einstellungen",
+    "THEME" : {
+      "TITLE" : "Aussehen",
+      "DARK"  : "Dunkel Modus",
+      "ON"    : "An",
+      "OFF"   : "Aus",
+      "System": "System"
+    }
   }
 }

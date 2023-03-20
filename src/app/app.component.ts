@@ -6,5 +6,24 @@ import { Component } from '@angular/core';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
+
+  menuEntries = [
+    {
+      name: 'HOME.TITLE',
+      path: 'home',
+      icon: 'search-circle-outline'
+    },
+    {
+      name: 'SETTINGS.TITLE',
+      path: 'settings',
+      icon: 'settings-outline'
+    },
+    // {
+    //   name: 'ABOUT.TITLE',
+    //   path: 'about',
+    //   icon: 'information-circle-outline'
+    // }
+  ];
+
   constructor() {}
 }

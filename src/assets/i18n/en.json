@@ -1,5 +1,15 @@
 {
   "HOME" : {
-    "TITLE": "Sports"
+    "TITLE" : "Sports"
+  },
+  "SETTINGS" : {
+    "TITLE" : "Settings",
+    "THEME" : {
+      "TITLE" : "Appearance",
+      "DARK"  : "Dark Mode",
+      "ON"    : "On",
+      "OFF"   : "Off",
+      "System": "System"
+    }
   }
 }
