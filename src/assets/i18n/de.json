@@ -6,10 +6,10 @@
     "TITLE" : "Einstellungen",
     "THEME" : {
       "TITLE" : "Aussehen",
-      "DARK"  : "Dunkel Modus",
-      "ON"    : "An",
-      "OFF"   : "Aus",
-      "System": "System"
+      "DESC"  : "Design",
+      "LIGHT" : "Hell",
+      "DARK"  : "Dunkel",
+      "SYSTEM": "Systemstandard"
     },
     "CONTENT" : {
       "TITLE" : "Inhalt",

@@ -20,8 +20,31 @@ export class SettingsPage implements OnInit {
   }
 
 
+  /**
+   * Passes the selected language to the settings service.
+   * 
+   * @param e {Event} The event given on change of the selected value.
+   */
   public setNewLanguage(e: any) {
     this.settings.setNewLanguage(e.detail.value);
   }
 
+
+  /**
+   * Converts the selected theme setting from integer to string, as needed by the select element values property.
+   * 
+   * @returns {String} The currently selected theme setting as a string.
+   */
+  public selectedThemeSetting(): String  {
+    return this.settings.selectedThemeSetting + "";
+  }
+
+  /**
+   * Passes the selected theme to the settings service.
+   * 
+   * @param e {Event} The event given on change of the selected value.
+   */
+  public updateThemeSetting(e: any) {
+    this.settings.updateThemeSetting(parseInt(e.detail.value));
+  }
 }

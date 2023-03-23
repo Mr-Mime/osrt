@@ -17,9 +17,12 @@
     <ion-card-content>
       <ion-list>
         <ion-item lines="none">
-          <ion-label>{{ 'SETTINGS.THEME.DARK' | translate }}</ion-label>
-          <!-- <ion-toggle [ngModel]="darkMode" (ngModelChange)="toggleDarkMode()" ></ion-toggle> -->
-          <ion-toggle></ion-toggle>
+          <ion-label>{{ 'SETTINGS.THEME.DESC' | translate }}</ion-label>
+          <ion-select interface="popover" [interfaceOptions]="{ showBackdrop: true }" [value]="selectedThemeSetting()" (ionChange)="updateThemeSetting($event)">
+            <ion-select-option value="0">{{ 'SETTINGS.THEME.LIGHT' | translate }}</ion-select-option>
+            <ion-select-option value="1">{{ 'SETTINGS.THEME.DARK' | translate }}</ion-select-option>
+            <ion-select-option value="2">{{ 'SETTINGS.THEME.SYSTEM' | translate }}</ion-select-option>
+          </ion-select>
         </ion-item>
       </ion-list>
     </ion-card-content>
