@@ -37,7 +37,7 @@
       <ion-list>
         <ion-item lines="none">
           <ion-label>{{ 'SETTINGS.CONTENT.LANG' | translate }}</ion-label>
-          <ion-select interface="popover" [interfaceOptions]="{ showBackdrop: true }" value="en" (ionChange)="setNewLanguage($event)">
+          <ion-select interface="popover" [interfaceOptions]="{ showBackdrop: true }" [value]="settings.selectedLanguageSetting" (ionChange)="setNewLanguage($event)">
             <ion-select-option *ngFor="let language of settings.supportedLanguages" [value]="language.short">{{ language.long }}</ion-select-option>
           </ion-select>
         </ion-item>

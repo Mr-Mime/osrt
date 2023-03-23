@@ -1,6 +1,9 @@
 import { Injectable, NgZone } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
+// Capacitor imports
+import { Preferences } from '@capacitor/preferences';
+
 
 export enum ThemeSetting {
   LIGHT,
@@ -19,7 +22,7 @@ export class SettingsService {
   private readonly _supportedLanguages = [
     {short: "en", long: "English"},
     {short: "de", long: "Deutsch"}];
-
+  public selectedLanguageSetting: String = "en";
   
   // Theme related properties
   private _prefersDark: MediaQueryList | undefined;
@@ -44,11 +47,29 @@ export class SettingsService {
    */
   public initLanguage() {
     this.translate.addLangs(this._supportedLangCodes);
-    this.translate.setDefaultLang("en");
+    this.translate.setDefaultLang("en");                // Set english as default and fallback
+
+    // Load saved preferences
+    Preferences.get({key: 'setting_language'})
+    .then(entry => {
+      // On first boot when this is not set, we default to english.
+      if (entry.value == null) {
+        Preferences.set({key: 'setting_language', value: "en"});
+        this.selectedLanguageSetting = "en"
+        this.translate.use("en");
+      } else {
+        this.selectedLanguageSetting = entry.value;
+        this.translate.use(entry.value);
+      }
+    });
   }
 
   public setNewLanguage(newLang: string) {
     this.translate.use(newLang);
+
+    // Save the change
+    this.selectedLanguageSetting = newLang;
+    Preferences.set({key: 'setting_language', value: newLang});
   }
 
 
@@ -66,6 +87,19 @@ export class SettingsService {
     // This is needed for following the system theme
     this._prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
     this._prefersDark.addEventListener('change', (e: any) => this.systemThemeChanged(e.matches))
+
+    // Load saved preference
+    Preferences.get({key: 'setting_theme'})
+    .then(entry => {
+      // On first boot when this is not set, we default to dark theme.
+      if (entry.value == null) {
+        this.selectedThemeSetting = ThemeSetting.DARK;
+        Preferences.set({key: 'setting_theme', value: ThemeSetting.DARK + ""}); // Converting the settings to string
+      } else {
+        this.selectedThemeSetting = parseInt(entry.value);
+        this.updateThemeSetting(this.selectedThemeSetting);
+      }
+    });
   }
 
 
@@ -104,7 +138,8 @@ export class SettingsService {
         break;        
     }
 
-    // TODO: addd logic to save value
+    // Save the change
+    Preferences.set({key: 'setting_theme', value: newValue + ""}); // Converting the settings to string
   }
 
 
