@@ -17,6 +17,7 @@
     <ion-card-content>
       <ion-list>
         <ion-item lines="none">
+          <ion-icon name="moon" slot="start"></ion-icon>
           <ion-label>{{ 'SETTINGS.THEME.DESC' | translate }}</ion-label>
           <ion-select interface="popover" [interfaceOptions]="{ showBackdrop: true }" [value]="selectedThemeSetting()" (ionChange)="updateThemeSetting($event)">
             <ion-select-option value="0">{{ 'SETTINGS.THEME.LIGHT' | translate }}</ion-select-option>
@@ -36,6 +37,7 @@
     <ion-card-content>
       <ion-list>
         <ion-item lines="none">
+          <ion-icon name="language" slot="start"></ion-icon>
           <ion-label>{{ 'SETTINGS.CONTENT.LANG' | translate }}</ion-label>
           <ion-select interface="popover" [interfaceOptions]="{ showBackdrop: true }" [value]="settings.selectedLanguageSetting" (ionChange)="setNewLanguage($event)">
             <ion-select-option *ngFor="let language of settings.supportedLanguages" [value]="language.short">{{ language.long }}</ion-select-option>

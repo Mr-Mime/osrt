@@ -13,12 +13,12 @@ export class AppComponent {
     {
       name: 'HOME.TITLE',
       path: 'home',
-      icon: 'search-circle-outline'
+      icon: 'home-sharp'
     },
     {
       name: 'SETTINGS.TITLE',
       path: 'settings',
-      icon: 'settings-outline'
+      icon: 'settings-sharp'
     },
     // {
     //   name: 'ABOUT.TITLE',
