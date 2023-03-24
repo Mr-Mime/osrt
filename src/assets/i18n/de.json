@@ -2,6 +2,14 @@
   "HOME" : {
     "TITLE" : "Sportarten"
   },
+  "PLAYERS" : {
+    "TITLE" : "Spieler*innen",
+    "STATS" : {
+      "GAMES" : "Spiele",
+      "WINRATE": "Gewonnen",
+      "TIME"  : "Gespielt"
+    }
+  },
   "SETTINGS" : {
     "TITLE" : "Einstellungen",
     "THEME" : {

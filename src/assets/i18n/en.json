@@ -2,6 +2,14 @@
   "HOME" : {
     "TITLE" : "Sports"
   },
+  "PLAYERS" : {
+    "TITLE" : "Players",
+    "STATS" : {
+      "GAMES" : "Games",
+      "WINRATE": "Wins",
+      "TIME"  : "Played"
+    }
+  },
   "SETTINGS" : {
     "TITLE" : "Settings",
     "THEME" : {

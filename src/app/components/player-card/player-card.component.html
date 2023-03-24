@@ -1,0 +1,26 @@
+<ion-list>
+  <ion-item>
+    <ion-thumbnail slot="start">
+      <app-winrate-circle [percentage]="winrate"></app-winrate-circle>
+    </ion-thumbnail>
+    <ion-label>
+      <h1>{{ name }}</h1>
+      <div class="stat-line">
+        <span class="single-stat">
+          <ion-icon name="basketball-outline"></ion-icon>
+          {{ 'PLAYERS.STATS.GAMES' | translate }}: {{ games }}
+        </span>
+
+        <span class="single-stat">
+          <ion-icon name="trophy-outline"></ion-icon>
+          {{ 'PLAYERS.STATS.WINRATE' | translate }}: {{ winrate }}%
+        </span>
+
+        <span class="single-stat">
+          <ion-icon name="time-outline"></ion-icon>
+          {{ 'PLAYERS.STATS.TIME' | translate }}: {{ hours_played }}h
+        </span>
+      </div>
+    </ion-label>
+  </ion-item>
+</ion-list>

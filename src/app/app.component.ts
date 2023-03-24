@@ -16,6 +16,11 @@ export class AppComponent {
       icon: 'home-sharp'
     },
     {
+      name: 'PLAYERS.TITLE',
+      path: 'players',
+      icon: 'person'
+    },
+    {
       name: 'SETTINGS.TITLE',
       path: 'settings',
       icon: 'settings-sharp'
