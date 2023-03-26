@@ -6,17 +6,17 @@
     <ion-label>
       <h1>{{ name }}</h1>
       <div class="stat-line">
-        <span class="single-stat">
+        <span class="single-stat flex-wrap">
           <ion-icon name="basketball-outline"></ion-icon>
           {{ 'PLAYERS.STATS.GAMES' | translate }}: {{ games }}
         </span>
 
-        <span class="single-stat">
+        <span class="single-stat flex-wrap">
           <ion-icon name="trophy-outline"></ion-icon>
           {{ 'PLAYERS.STATS.WINRATE' | translate }}: {{ winrate }}%
         </span>
 
-        <span class="single-stat">
+        <span class="single-stat flex-wrap">
           <ion-icon name="time-outline"></ion-icon>
           {{ 'PLAYERS.STATS.TIME' | translate }}: {{ hours_played }}h
         </span>
