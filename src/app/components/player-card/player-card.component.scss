@@ -12,15 +12,14 @@ h1 {
 }
 
 .stat-line {
-  margin-top: 10px;
+  flex-wrap: wrap;
+  display: flex;
   font-size: 0.8em;
 }
 
 .single-stat {
+  margin-top: 7px;
   margin-right: 12px;
-  margin: 7px;
-
-  
 }
 
 .flex-wrap {
@@ -32,4 +31,9 @@ h1 {
 .flex-wrap ion-icon {
   margin-right: 5px;
 
+}
+
+ion-buttons {
+  margin-inline-start: 0;
+  margin-left: 0;
 }

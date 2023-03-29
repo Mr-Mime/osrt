@@ -1,34 +1,32 @@
-<ion-list>
-  <ion-item>
-    <ion-thumbnail slot="start">
-      <app-winrate-circle [percentage]="winrate"></app-winrate-circle>
-    </ion-thumbnail>
-    <ion-label>
-      <h1>{{ name }}</h1>
-      <div class="stat-line">
-        <span class="single-stat flex-wrap">
-          <ion-icon name="basketball-outline"></ion-icon>
-          {{ 'PLAYERS.STATS.GAMES' | translate }}: {{ games }}
-        </span>
+<ion-item>
+  <ion-thumbnail slot="start">
+    <app-winrate-circle [percentage]="winrate"></app-winrate-circle>
+  </ion-thumbnail>
+  <ion-label>
+    <h1>{{ name }}</h1>
+    <div class="stat-line">
+      <span class="single-stat flex-wrap">
+        <ion-icon name="basketball-outline"></ion-icon>
+        {{ 'PLAYERS.STATS.GAMES' | translate }}: {{ games }}
+      </span>
 
-        <span class="single-stat flex-wrap">
-          <ion-icon name="trophy-outline"></ion-icon>
-          {{ 'PLAYERS.STATS.WINRATE' | translate }}: {{ winrate }}%
-        </span>
+      <span class="single-stat flex-wrap">
+        <ion-icon name="trophy-outline"></ion-icon>
+        {{ 'PLAYERS.STATS.WINRATE' | translate }}: {{ winrate }}%
+      </span>
 
-        <span class="single-stat flex-wrap">
-          <ion-icon name="time-outline"></ion-icon>
-          {{ 'PLAYERS.STATS.TIME' | translate }}: {{ hours_played }}h
-        </span>
-      </div>
-    </ion-label>
-    
-    <!-- Delete button -->
-    <ion-buttons slot="end">
-      <ion-button color="danger" (click)="deleteButtonPressed()">
-        <ion-icon name="trash-outline"></ion-icon>
-      </ion-button>
-    </ion-buttons>
+      <span class="single-stat flex-wrap">
+        <ion-icon name="time-outline"></ion-icon>
+        {{ 'PLAYERS.STATS.TIME' | translate }}: {{ hours_played }}h
+      </span>
+    </div>
+  </ion-label>
+  
+  <!-- Delete button -->
+  <ion-buttons slot="end">
+    <ion-button color="danger" (click)="deleteButtonPressed()">
+      <ion-icon name="trash-outline"></ion-icon>
+    </ion-button>
+  </ion-buttons>
 
-  </ion-item>
-</ion-list>
+</ion-item>

@@ -9,7 +9,9 @@
 
 <ion-content>
   <!-- List of players -->
-  <app-player-card *ngFor="let player of players" [name]="player.name" [games]=9 [winrate]=40 [hours_played]=2 (onDeletePlayer)="deletePlayer(player)"></app-player-card>
+  <ion-list>
+    <app-player-card *ngFor="let player of players" [name]="player.name" [games]=9 [winrate]=40 [hours_played]=2 (onDeletePlayer)="deletePlayer(player)"></app-player-card>
+  </ion-list>
 
   <!-- Button to add a new player -->
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
