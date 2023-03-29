@@ -8,6 +8,14 @@
 </ion-header>
 
 <ion-content>
-  <app-player-card name="Stephen Hawking" [games]=3 [winrate]=40 [hours_played]=18></app-player-card>
-  <app-player-card name="Michelle Obama" [games]=17 [winrate]=50 [hours_played]=23></app-player-card>
+  <!-- List of players -->
+  <app-player-card *ngFor="let player of players" [name]="player.name" [games]=9 [winrate]=40 [hours_played]=2 (onDeletePlayer)="deletePlayer(player)"></app-player-card>
+
+  <!-- Button to add a new player -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="addPlayer()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
 </ion-content>

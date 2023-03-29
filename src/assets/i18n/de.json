@@ -1,4 +1,10 @@
 {
+  "GENERAL" : {
+    "CANCEL" : "Abbrechen",
+    "OK"     : "Ok",
+    "DELETE" : "Löschen",
+    "ADD"    : "Hinzufügen"
+  },
   "HOME" : {
     "TITLE" : "Sportarten"
   },
@@ -8,6 +14,17 @@
       "GAMES" : "Spiele",
       "WINRATE": "Gewonnen",
       "TIME"  : "Gespielt"
+    },
+    "ADD" : {
+      "TITLE" : "Spieler*in hinzufügen",
+      "MSG"   : "Bitte gib den Namen ein",
+      "PLACEHOLDER " : "Name",
+      "SUCCESS" : "{{playerName}} erfolgreich hinzugefügt"
+    },
+    "DELETE" : {
+      "TITLE"   : "Spieler*in löschen",
+      "MSG"     : "Bist du sicher, dass du {{playerName}} löschen möchtest?",
+      "SUCCESS" : "{{playerName}} gelöscht"
     }
   },
   "SETTINGS" : {

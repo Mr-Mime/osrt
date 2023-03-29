@@ -1,4 +1,10 @@
 {
+  "GENERAL" : {
+    "CANCEL" : "Cancel",
+    "OK"     : "Ok",
+    "DELETE" : "Delete",
+    "ADD"    : "Add"
+  },
   "HOME" : {
     "TITLE" : "Sports"
   },
@@ -8,6 +14,17 @@
       "GAMES" : "Games",
       "WINRATE": "Wins",
       "TIME"  : "Played"
+    },
+    "ADD" : {
+      "TITLE" : "Add Player",
+      "MSG"   : "Enter the name of the player",
+      "PLACEHOLDER" : "Name",
+      "SUCCESS" : "{{playerName}} added successfully"
+    },
+    "DELETE" : {
+      "TITLE" : "Delete Player",
+      "MSG"   : "Are you sure you want to delete {{playerName}} ?",
+      "SUCCESS" : "{{playerName}} deleted"
     }
   },
   "SETTINGS" : {

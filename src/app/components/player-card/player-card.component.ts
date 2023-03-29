@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, EventEmitter, Output, OnInit } from '@angular/core';
 
 import { TranslateService } from '@ngx-translate/core';
 
@@ -13,10 +13,19 @@ export class PlayerCardComponent  implements OnInit {
   @Input() winrate: number = 0;
   @Input() hours_played: number = 0;
 
+  @Output() onDeletePlayer = new EventEmitter<boolean>();
+
   constructor(
     public translate: TranslateService
   ) { }
 
   ngOnInit() {}
 
+
+  /**
+   * Emit an event when the delete button was pressed
+   */
+  public deleteButtonPressed() {
+    this.onDeletePlayer.emit(true);
+  }
 }

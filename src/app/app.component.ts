@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { SettingsService } from './services/settings.service';
+import { DatabaseService } from './services/database.service';
 
 @Component({
   selector: 'app-root',
@@ -33,6 +34,9 @@ export class AppComponent {
   ];
 
   constructor(
-    private settings: SettingsService
-  ) {}
+    private settings: SettingsService,
+    private dbService: DatabaseService
+  ) {
+    this.dbService.initDataBase();
+  }
 }
