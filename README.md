@@ -1,6 +1,6 @@
 #### :warning: State of development!
 This app is currently in a alpha status and there are no official builds available.  
-You can always build the app from this source if you want, more info can be found under [building instructions](#how-to-build-it).
+You can always build the app from this source if you want, more info can be found under [building instructions](#wrench-how-to-build-it).
 
 Or you enable notifications for releases to get notified about new releases.  
 This can be in the upper right hand corner, just click "watch".
