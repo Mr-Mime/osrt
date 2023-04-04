@@ -1,0 +1,64 @@
+<ion-card class="text-center">
+  <div class="image-wrapper">
+    <img [src]="imagePath">
+  </div>
+  
+  <ion-card-header>
+    <ion-card-title class="ion-text-center">
+      {{ sportName }}
+    </ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6">
+          <div class="stats-wrapper">
+            <ion-icon [src]="iconPath" size="large"></ion-icon>
+          </div>
+          <div class="stats-wrapper">
+            <p>{{ games }} Games</p>
+          </div>
+        </ion-col>
+        <ion-col size="6">
+          <div class="horizontal-separator"></div>
+          <div class="stats-wrapper">
+            <ion-icon name="time-outline" size="large"></ion-icon>
+          </div>
+          <div class="stats-wrapper">
+            <p>{{ hoursPlayed }}h</p>
+          </div>
+        </ion-col>
+      </ion-row>
+      
+      <ion-row>
+        <ion-col size="6">
+          <div class="vertical-separator"></div>
+        </ion-col>
+        <ion-col size="6">
+          <div class="vertical-separator"></div>
+        </ion-col>
+      </ion-row>
+      
+      <ion-row>
+        <ion-col size="6">
+          <div class="stats-wrapper">
+            <ion-icon name="trophy-outline" size="large"></ion-icon>
+          </div>
+          <div class="stats-wrapper">
+            <p>{{ winrate }}% winrate</p>
+          </div>
+        </ion-col>
+        <ion-col size="6">
+          <div class="horizontal-separator"></div>
+          <div class="stats-wrapper">
+            <ion-icon name="people-outline" size="large"></ion-icon>
+          </div>
+          <div class="stats-wrapper">
+            <p>{{ playerCount }} players</p>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </ion-card-content>
+</ion-card>

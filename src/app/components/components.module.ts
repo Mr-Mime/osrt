@@ -5,12 +5,14 @@ import { TranslateModule } from '@ngx-translate/core';
 
 import { PlayerCardComponent } from './player-card/player-card.component';
 import { WinrateCircleComponent } from './winrate-circle/winrate-circle.component';
+import { SportCardComponent } from './sport-card/sport-card.component';
 import { IonicModule } from '@ionic/angular';
 
 @NgModule({
   declarations: [
     PlayerCardComponent,
-    WinrateCircleComponent
+    WinrateCircleComponent,
+    SportCardComponent
   ],
   imports: [
     CommonModule,
@@ -19,7 +21,8 @@ import { IonicModule } from '@ionic/angular';
   ],
   exports: [
     PlayerCardComponent,
-    WinrateCircleComponent
+    WinrateCircleComponent,
+    SportCardComponent
   ]
 })
 export class ComponentsModule { }

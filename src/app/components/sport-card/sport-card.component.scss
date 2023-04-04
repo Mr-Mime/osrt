@@ -1,0 +1,43 @@
+ion-card {
+    border-radius: 30px;    
+}
+
+.image-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 16px;
+}
+
+img {
+    width: 33%;
+    border-radius: 10px;
+    box-shadow: 5px 5px var(--ion-color-light);
+}
+
+.stats-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ion-icon {
+    color: var(--ion-color-primary);
+}
+
+.vertical-separator {
+    border-bottom: 1px solid;
+    border-color: var(--ion-color-light);
+    position: absolute;
+    left: 25%;
+    right: 25%;
+}
+
+.horizontal-separator {
+    border-left: 1px solid;
+    border-color: var(--ion-color-light);
+    position: absolute;
+    top: 25%;
+    bottom: 25%;
+    left: -0.5px;
+}
