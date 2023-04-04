@@ -6,7 +6,12 @@
     "ADD"    : "Add"
   },
   "HOME" : {
-    "TITLE" : "Sports"
+    "TITLE" : "Sports",
+    "STATS" : {
+      "GAMES" : "Games",
+      "WINRATE": "Wins",
+      "PLAYERS": "Players"
+    }
   },
   "PLAYERS" : {
     "TITLE" : "Players",
@@ -39,6 +44,14 @@
     "CONTENT" : {
       "TITLE" : "Content",
       "LANG"  : "Language"
+    }
+  },
+  "SPORT" : {
+    "BEACHVOLLEYBALL" : {
+      "TITLE" : "Beach Volleyball"
+    },
+    "TABLETENNIS" : {
+      "TITLE" : "Table Tennis"
     }
   }
 }

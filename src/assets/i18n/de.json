@@ -6,7 +6,12 @@
     "ADD"    : "Hinzufügen"
   },
   "HOME" : {
-    "TITLE" : "Sportarten"
+    "TITLE" : "Sportarten",
+    "STATS" : {
+      "GAMES" : "Spiele",
+      "WINRATE": "Gewonnen",
+      "PLAYERS": "Spieler"
+    }
   },
   "PLAYERS" : {
     "TITLE" : "Spieler*innen",
@@ -39,6 +44,14 @@
     "CONTENT" : {
       "TITLE" : "Inhalt",
       "LANG"  : "Sprache"
+    }
+  },
+  "SPORT" : {
+    "BEACHVOLLEYBALL" : {
+      "TITLE" : "Beachvolleyball"
+    },
+    "TABLETENNIS" : {
+      "TITLE" : "Tischtennis"
     }
   }
 }

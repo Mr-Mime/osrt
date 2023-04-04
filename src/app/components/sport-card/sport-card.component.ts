@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
+import { TranslateService } from '@ngx-translate/core';
+
 @Component({
   selector: 'app-sport-card',
   templateUrl: './sport-card.component.html',
@@ -15,7 +17,9 @@ export class SportCardComponent  implements OnInit {
   @Input() playerCount: number = 0;
   
 
-  constructor() { }
+  constructor(
+    public translate: TranslateService
+  ) { }
 
   ngOnInit() {}
 

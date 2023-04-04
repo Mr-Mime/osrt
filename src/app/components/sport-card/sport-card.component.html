@@ -16,7 +16,7 @@
             <ion-icon [src]="iconPath" size="large"></ion-icon>
           </div>
           <div class="stats-wrapper">
-            <p>{{ games }} Games</p>
+            <p>{{ games }} {{ 'HOME.STATS.GAMES' | translate }}</p>
           </div>
         </ion-col>
         <ion-col size="6">
@@ -45,7 +45,7 @@
             <ion-icon name="trophy-outline" size="large"></ion-icon>
           </div>
           <div class="stats-wrapper">
-            <p>{{ winrate }}% winrate</p>
+            <p>{{ winrate }}% {{ 'HOME.STATS.WINRATE' | translate }}</p>
           </div>
         </ion-col>
         <ion-col size="6">
@@ -54,7 +54,7 @@
             <ion-icon name="people-outline" size="large"></ion-icon>
           </div>
           <div class="stats-wrapper">
-            <p>{{ playerCount }} players</p>
+            <p>{{ playerCount }} {{ 'HOME.STATS.PLAYERS' | translate }}</p>
           </div>
         </ion-col>
       </ion-row>
