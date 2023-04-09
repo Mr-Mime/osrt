@@ -6,10 +6,34 @@
     <ion-title>
       {{ 'HOME.TITLE' | translate }}
     </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="toggleEditMode()">
+        <ion-icon *ngIf="isInEditMode"  slot="icon-only" name="close-outline"></ion-icon>
+        <ion-icon *ngIf="!isInEditMode" slot="icon-only" src="assets/custom-icons/edit.svg"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <app-sport-card imagePath="assets/img/bv_1.jpg" iconPath="assets/custom-icons/bv.svg" sportName="{{ 'SPORT.BEACHVOLLEYBALL.TITLE' | translate }}"></app-sport-card>
-  <app-sport-card imagePath="assets/img/tt_3.jpg" iconPath="assets/custom-icons/ping-pong.svg" sportName="{{ 'SPORT.TABLETENNIS.TITLE' | translate }}"></app-sport-card>
+
+  <div *ngIf="isInEditMode" class="add-button-wrapper">
+    <ion-button (click)="openSportSelector()" shape="round">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-button>
+  </div>
+
+  <app-sport-card *ngIf="enabledSports.includes('bv')"
+    imagePath="assets/img/bv_1.jpg" 
+    iconPath="assets/custom-icons/bv.svg" 
+    sportName="{{ 'SPORT.BEACHVOLLEYBALL.TITLE' | translate }}" 
+    [isInEditMode]="isInEditMode" 
+    (onDeleteSport)="deleteSport('bv')"></app-sport-card>
+  
+  <app-sport-card *ngIf="enabledSports.includes('tt')"
+    imagePath="assets/img/tt_3.jpg" 
+    iconPath="assets/custom-icons/ping-pong.svg" 
+    sportName="{{ 'SPORT.TABLETENNIS.TITLE' | translate }}" 
+    [isInEditMode]="isInEditMode" 
+    (onDeleteSport)="deleteSport('tt')"></app-sport-card>
 </ion-content>

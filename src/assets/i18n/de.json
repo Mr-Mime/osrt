@@ -11,7 +11,14 @@
       "GAMES" : "Spiele",
       "WINRATE": "Gewonnen",
       "PLAYERS": "Spieler"
-    }
+    },
+    "ADD_SPORTS": {
+      "TITLE" : "Sportarten hinzufügen",
+      "EMPTY" : {
+        "TITLE" : "Sportskanone!",
+        "MSG"   : "Es sind bereits alle Sportarten hinzugefügt."
+      }
+    }  
   },
   "PLAYERS" : {
     "TITLE" : "Spieler*innen",

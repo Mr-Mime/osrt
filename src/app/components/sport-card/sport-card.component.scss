@@ -41,3 +41,19 @@ ion-icon {
     bottom: 25%;
     left: -0.5px;
 }
+
+.edit-blur {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    backdrop-filter: blur(3px);
+
+    // Needed so that the button ripple effect is red
+    color: var(--ion-color-danger);
+}

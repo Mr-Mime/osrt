@@ -11,6 +11,13 @@
       "GAMES" : "Games",
       "WINRATE": "Wins",
       "PLAYERS": "Players"
+    },
+    "ADD_SPORTS": {
+      "TITLE" : "Add sports",
+      "EMPTY" : {
+        "TITLE" : "Sporting ace!",
+        "MSG"   : "All sports are already added."
+      }
     }
   },
   "PLAYERS" : {

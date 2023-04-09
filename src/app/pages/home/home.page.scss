@@ -25,3 +25,19 @@
 #container a {
   text-decoration: none;
 }
+
+.add-button-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  ion-button {
+    &.md {
+      margin-top: 14px;
+    }
+
+    &.ios {
+      margin-top: 28px;
+    }
+  }
+}

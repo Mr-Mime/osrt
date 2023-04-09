@@ -61,4 +61,12 @@
     </ion-grid>
 
   </ion-card-content>
+
+  <div *ngIf="isInEditMode" class="edit-blur">
+    <ion-buttons>
+      <ion-button (click)="deleteButtonPressed()">
+        <ion-icon slot="icon-only" name="trash-outline" color="danger" size="large"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </div>
 </ion-card>
