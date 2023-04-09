@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { Preferences } from '@capacitor/preferences';
 import { BehaviorSubject } from 'rxjs';
+import { DatabaseService } from './database.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,9 @@ export class SportService {
 
   public enabledSports = new BehaviorSubject([""]);
 
-  constructor() {
+  constructor(
+    private dbService: DatabaseService
+  ) {
     this.loadEnabledSports();
   }
 
@@ -53,6 +56,9 @@ export class SportService {
       // Publish the change
       this.enabledSports.next(currentlyEnabled);
 
+      // Create the data tables
+      this.dbService.createSportsTable(shortCode);
+
       // Save the change
       let enabledString = currentlyEnabled.join(",");
       Preferences.set({key: "sports_enabled", value: enabledString});
@@ -76,6 +82,9 @@ export class SportService {
 
       // Publish the change
       this.enabledSports.next(currentlyEnabled);
+
+      // Remove the data table
+      this.dbService.removeSportsTable(shortCode);
 
       // Save the change
       let enabledString = currentlyEnabled.join(",");
