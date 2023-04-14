@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AlertController, AlertInput } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
-import { SportService } from 'src/app/services/sport.service';
+
+// Services
+import { SportService, Sport } from 'src/app/services/sport.service';
 
 @Component({
   selector: 'app-home',
@@ -19,6 +22,7 @@ export class HomePage {
 
   constructor(
     private alertController: AlertController,
+    private router: Router,
     private sportService: SportService,
     private translate: TranslateService
   ) {
@@ -35,6 +39,20 @@ export class HomePage {
    */
   public toggleEditMode() {
     this.isInEditMode = !this.isInEditMode;
+  }
+
+
+  /**
+   * Navigates to the sport page pasing the short code of the choosen sport.
+   * Only works if currently not in edit mode.
+   * 
+   * @param shortCode Short code of the sport to navigate to
+   */
+  public navigateToSport(shortCode: Sport) {
+    // We only navigate if we are not in edit mode
+    if (this.isInEditMode) return;
+    
+    this.router.navigate(['/sport'], {queryParams: {sport: shortCode}});
   }
 
 

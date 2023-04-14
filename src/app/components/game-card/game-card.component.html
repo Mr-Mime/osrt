@@ -1,0 +1,30 @@
+<ion-item>
+  <ion-icon name="trophy-outline" slot="start" [class.won]="won"></ion-icon>
+  <ion-label>
+    <h1>{{ points }}:{{ pointsOpponent }} - {{ duration }}min</h1>
+    <div class="stat-line">
+      <span class="single-stat flex-wrap">
+        <ion-icon name="basketball-outline"></ion-icon>
+        test1
+      </span>
+
+      <span class="single-stat flex-wrap">
+        <ion-icon name="trophy-outline"></ion-icon>
+        test2
+      </span>
+
+      <span class="single-stat flex-wrap">
+        <ion-icon name="time-outline"></ion-icon>
+        23min
+      </span>
+    </div>
+  </ion-label>
+  
+  <!-- Delete button -->
+  <!-- <ion-buttons slot="end">
+    <ion-button color="danger">
+      <ion-icon name="trash-outline"></ion-icon>
+    </ion-button>
+  </ion-buttons> -->
+
+</ion-item>

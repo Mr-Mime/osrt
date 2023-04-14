@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ activeSport.transString | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- List of games -->
+  <ion-list>
+    <app-game-card *ngFor="let game of games"
+      [points]="game.points"
+      [pointsOpponent]="game.pointsOpponent"
+      [duration]="game.duration"
+      [won]="game.won"
+      [location]="game.location">
+    </app-game-card>
+  </ion-list>
+
+  <!-- Button to add a new game -->
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button (click)="addGame()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

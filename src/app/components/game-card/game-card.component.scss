@@ -1,0 +1,39 @@
+ion-icon[name="trophy-outline"] {
+    color: gray;
+
+    // Overwrite color for trophys of won games
+    &.won {
+        color: #FFD700 !important;
+    }
+}
+
+h1 {
+    font-size: 1.3em;
+  }
+  
+  .stat-line {
+    flex-wrap: wrap;
+    display: flex;
+    font-size: 0.8em;
+  }
+  
+  .single-stat {
+    margin-top: 7px;
+    margin-right: 12px;
+  }
+  
+  .flex-wrap {
+    display: flex;
+    align-items: center;
+    
+  }
+  
+  .flex-wrap ion-icon {
+    margin-right: 5px;
+  
+  }
+  
+  ion-buttons {
+    margin-inline-start: 0;
+    margin-left: 0;
+  }

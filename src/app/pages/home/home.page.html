@@ -24,6 +24,7 @@
   </div>
 
   <app-sport-card *ngIf="enabledSports.includes('bv')"
+    (click)="navigateToSport(0)"
     imagePath="assets/img/bv_1.jpg" 
     iconPath="assets/custom-icons/bv.svg" 
     sportName="{{ 'SPORT.BEACHVOLLEYBALL.TITLE' | translate }}" 
@@ -31,6 +32,7 @@
     (onDeleteSport)="deleteSport('bv')"></app-sport-card>
   
   <app-sport-card *ngIf="enabledSports.includes('tt')"
+    (click)="navigateToSport(1)"
     imagePath="assets/img/tt_3.jpg" 
     iconPath="assets/custom-icons/ping-pong.svg" 
     sportName="{{ 'SPORT.TABLETENNIS.TITLE' | translate }}" 
