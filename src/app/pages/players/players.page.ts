@@ -40,7 +40,7 @@ export class PlayersPage implements OnInit {
 
   /**
    * Delete a player
-   * @param player {Player} Player to delete
+   * @param player Player to delete
    */
   public async deletePlayer(player: Player) {
     // Ask for confirmation

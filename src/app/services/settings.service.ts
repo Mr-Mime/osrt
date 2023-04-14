@@ -107,7 +107,7 @@ export class SettingsService {
    * Callback to react to a systemwide theme change.
    * It will only enable/disable the dark theme in the app, if it is set to follow the system setting.
    * 
-   * @param isDark {boolen} Wether the theme changed to 'dark' or not
+   * @param isDark Wether the theme changed to 'dark' or not
    */
   private systemThemeChanged(isDark: boolean) {
     if (this.selectedThemeSetting == ThemeSetting.SYSTEM) 
@@ -147,7 +147,7 @@ export class SettingsService {
    * This function adds or removes the 'dark' class from the body element.
    * Thereby it en-/disables the dark theme.
    * 
-   * @param shouldEnableDark {boolean} Wether the dark theme should be enabled or not
+   * @param shouldEnableDark Wether the dark theme should be enabled or not
    */
   private toggleDarkTheme(shouldEnableDark: boolean) {
     if (shouldEnableDark) document.body.classList.add('dark');

@@ -108,7 +108,7 @@ export class HomePage {
   /**
    * Deletes sport from list of enabled sports.
    * 
-   * @param shortCode {string} Short code of the sport to delete
+   * @param shortCode Short code of the sport to delete
    */
   public deleteSport(shortCode: string) {
     this.sportService.disableSport(shortCode);
@@ -118,7 +118,7 @@ export class HomePage {
   /**
    * Adds passed sports to list of enabled sports
    * 
-   * @param sports {Array<string>} Array of shortcodes from sports to add.
+   * @param sports Array of shortcodes from sports to add.
    */
   private addSports(sports: Array<string>) {
     sports.forEach(sport => {

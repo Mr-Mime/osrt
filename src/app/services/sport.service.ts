@@ -54,7 +54,8 @@ export class SportService {
   /**
    * Enables a sport.
    * This will make it visible on the home page.
-   * @param shortCode {string} The short code of the sport to enable.
+   * 
+   * @param shortCode The short code of the sport to enable.
    */
   public enableSport(shortCode: string) {
     let currentlyEnabled = this.enabledSports.value;
@@ -80,7 +81,7 @@ export class SportService {
    * Disables a sport.
    * This will remove it from the home page.
    * 
-   * @param shortCode {string} The short code of the sport to disable
+   * @param shortCode The short code of the sport to disable
    */
   public disableSport(shortCode: string) {
     let currentlyEnabled = this.enabledSports.value;
