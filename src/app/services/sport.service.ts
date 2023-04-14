@@ -4,12 +4,22 @@ import { Preferences } from '@capacitor/preferences';
 import { BehaviorSubject } from 'rxjs';
 import { DatabaseService } from './database.service';
 
+export enum Sport {
+  BEACHVOLLEYBALL,
+  TABLETENNIS
+};
+
+export type SupportedSportsType = {
+  short: string,
+  transString: string
+};
+
 @Injectable({
   providedIn: 'root'
 })
 export class SportService {
 
-  public readonly supportedSports = [
+  public readonly supportedSports: Array<SupportedSportsType> = [
     {short: "bv", transString: "SPORT.BEACHVOLLEYBALL.TITLE"},
     {short: "tt", transString: "SPORT.TABLETENNIS.TITLE"},
   ];
