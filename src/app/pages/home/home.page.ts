@@ -4,7 +4,7 @@ import { AlertController, AlertInput } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
 
 // Services
-import { SportService, Sport } from 'src/app/services/sport.service';
+import { SportService, Sport, SupportedSportsType } from 'src/app/services/sport.service';
 
 @Component({
   selector: 'app-home',
@@ -23,7 +23,7 @@ export class HomePage {
   constructor(
     private alertController: AlertController,
     private router: Router,
-    private sportService: SportService,
+    public  sportService: SportService,
     private translate: TranslateService
   ) {
     this.translate.setDefaultLang("en");
@@ -48,11 +48,12 @@ export class HomePage {
    * 
    * @param shortCode Short code of the sport to navigate to
    */
-  public navigateToSport(shortCode: Sport) {
+  public navigateToSport(sport: SupportedSportsType) {
     // We only navigate if we are not in edit mode
     if (this.isInEditMode) return;
+    console.log("Pushing: " + JSON.stringify(sport));
     
-    this.router.navigate(['/sport'], {queryParams: {sport: shortCode}});
+    this.router.navigate(['/sport'], {queryParams: {sport: JSON.stringify(sport)}});
   }
 
 

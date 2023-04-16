@@ -28,7 +28,7 @@ export class SportPage implements OnInit {
     public translate: TranslateService
   ) {
     this.route.queryParams.subscribe(params => {
-      this.activeSport = this.sportService.supportedSports[params["sport"]];
+      this.activeSport = JSON.parse(params["sport"]);
     });
   }
 
