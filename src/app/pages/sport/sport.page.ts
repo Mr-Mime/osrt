@@ -42,7 +42,13 @@ export class SportPage implements OnInit {
    * Load all saved games for the currently open sport
    */
   private async loadGames() {
-    this.games = await this.dbService.getAllGamesOfSport(this.activeSport.short);
+    let g = await this.dbService.getAllGamesOfSport(this.activeSport.short);
+
+    this.games = g.sort((a,b) => {
+      if (a.id < b.id) return 1;
+      if (a.id > b.id) return -1;
+      return 0;
+    });
   }
 
 
