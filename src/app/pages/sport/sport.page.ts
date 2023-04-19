@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { ModalController } from '@ionic/angular';
 
 // Services
 import { DatabaseService } from 'src/app/services/database.service';
-import { SportService, SupportedSportsType } from 'src/app/services/sport.service';
+import { SupportedSportsType } from 'src/app/services/sport.service';
 
-// Models
-import { Game } from 'src/app/models/models';
+// Modal
+import { AddNewGameFormComponent } from 'src/app/components/add-new-game-form/add-new-game-form.component';
 
 
 @Component({
@@ -23,11 +24,11 @@ export class SportPage implements OnInit {
 
   constructor(
     private dbService: DatabaseService,
+    private modalCtrl: ModalController,
     private route: ActivatedRoute,
-    private sportService: SportService,
     public translate: TranslateService
   ) {
-    this.route.queryParams.subscribe(params => {
+    this.route.queryParams.subscribe(params => {      
       this.activeSport = JSON.parse(params["sport"]);
     });
   }
@@ -46,26 +47,36 @@ export class SportPage implements OnInit {
 
 
   /**
-   * Add a game to the list of games of the cuttently open sport
+   * Opens the modal which allows adding a new game.
+   * All data verification is done by the modal.
    */
-  public addGame() {
-    var game: Game = {
-      id: -1,             // needs to be set as needed by the type, not used for adding the game
-      won: true,
-      points: 23,
-      pointsOpponent: 12,
-      startTime: 1,
-      endTime: 10,
-      duration: 9,
-      location: null,
-      createTime: -1,     // needs to be set as needed by the type, not used for adding the game
-      lastEditTime: -1    // needs to be set as needed by the type, not used for adding the game
-    };
+  public async openAddSportForm() {
+    // Create and present the modal
+    const modal = await this.modalCtrl.create({
+      component: AddNewGameFormComponent,
+      id: 'custom-dialog-modal',
+      backdropDismiss: false
+    });
+    modal.present();
 
-    // Add the game to the database
-    this.dbService.addGameForSport(this.activeSport.short, game);
+    // Waiting for the modal to be closed
+    const {data, role} = await modal.onWillDismiss();
 
-    // Reload the list of games
-    this.loadGames();
+    // We only need to handle if the modal was confirmed
+    if (role === 'confirm') {
+      console.log("DATA: " + JSON.stringify(data));
+      
+      // Add the game to the database
+      const ret = await this.dbService.addGameForSport(this.activeSport.short, data.game);
+  
+      // Get the ID of the added game
+      let id: number = ret.changes?.lastId ? ret.changes.lastId : -1;
+  
+      // Add the player game conection
+      this.dbService.addGamePlayerConnection(this.activeSport.short, id, data.playerId, true);
+  
+      // Reload the list of games
+      this.loadGames();
+    }
   }
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 // Plugins
-import { CapacitorSQLite, CapacitorSQLitePlugin, SQLiteConnection } from '@capacitor-community/sqlite';
+import { CapacitorSQLite, CapacitorSQLitePlugin, SQLiteConnection, capSQLiteChanges } from '@capacitor-community/sqlite';
 
 // Models
 import { Player, Location, Game } from '../models/models';
@@ -236,17 +236,50 @@ export class DatabaseService {
    * 
    * @param shortCode The short code for the sport to add a game to
    * @param game An object containing all the game data to save
+   * @returns The return code of the database execution containig the number of changes and the latest ID.
    */
   public async addGameForSport(shortCode: string, game: Game) {
     var statement = `INSERT INTO ${shortCode}
       (won,             points,           pointsOpponent,         startTime, 
-       endTime,         duration,         location) VALUES 
-      (${game.won},     ${game.points},   ${game.pointsOpponent}, ${game.startTime}, 
-       ${game.endTime}, ${game.duration}, ${game.location}
-    );`;
+       endTime,         duration,         location) VALUES (?,?,?,?,?,?,?);`;
 
-    const ret = await CapacitorSQLite.execute({database: "sqrt", statements: statement})
+    var values = [
+      game.won,     game.points,   game.pointsOpponent, game.startTime,
+      game.endTime, game.duration, game.location];
+
+    // Run the command on the database
+    const ret = await CapacitorSQLite.run({
+      database: "sqrt",
+      statement: statement,
+      values: values
+    });
+
+    return ret;
   }
 
 
+  /**
+   * Adds an entry in the table which connects players to games.
+   * 
+   * @param shortCode The short code of the sport to which the game is related
+   * @param gameID The id of the game
+   * @param playerID The id of the player
+   * @param wasOpponent If the player was an opponent or a teammate
+   * @returns A promise resolving with an object containig number of changes and id of added entry
+   */
+  public async addGamePlayerConnection(shortCode: string, gameID: number, playerID: number, wasOpponent: boolean): Promise<capSQLiteChanges> {
+    var statement = `INSERT INTO ${shortCode}PlayerConnection
+      (gameId, playerId, playerWasOpponent) VALUES (?, ?, ?);`;
+
+    var values = [gameID, playerID, wasOpponent];
+
+    // Execute the command on the database
+    const ret = await CapacitorSQLite.run({
+      database: "sqrt",
+      statement: statement,
+      values: values
+    });
+
+    return ret;
+  }
 }

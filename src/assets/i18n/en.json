@@ -5,6 +5,14 @@
     "DELETE" : "Delete",
     "ADD"    : "Add"
   },
+  "SPORT" : {
+    "BEACHVOLLEYBALL" : {
+      "TITLE" : "Beach Volleyball"
+    },
+    "TABLETENNIS" : {
+      "TITLE" : "Table Tennis"
+    }
+  },
   "HOME" : {
     "TITLE" : "Sports",
     "STATS" : {
@@ -53,12 +61,17 @@
       "LANG"  : "Language"
     }
   },
-  "SPORT" : {
-    "BEACHVOLLEYBALL" : {
-      "TITLE" : "Beach Volleyball"
-    },
-    "TABLETENNIS" : {
-      "TITLE" : "Table Tennis"
+  "SPORTPAGE" : {
+    "ADD_GAME" : {
+      "TITLE"    : "Add game",
+      "POINTS"   : "Points",
+      "YOURS"    : "Yours",
+      "OPPONENT" : "Opponent",
+      "CHOOSE_PLAYER" : "Choose player",
+      "ERROR" : {
+        "POINTS" : "Please enter the points",
+        "PLAYER" : "Please choose an player"
+      }
     }
   }
 }

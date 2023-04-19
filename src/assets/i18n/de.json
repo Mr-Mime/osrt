@@ -5,6 +5,14 @@
     "DELETE" : "Löschen",
     "ADD"    : "Hinzufügen"
   },
+  "SPORT" : {
+    "BEACHVOLLEYBALL" : {
+      "TITLE" : "Beachvolleyball"
+    },
+    "TABLETENNIS" : {
+      "TITLE" : "Tischtennis"
+    }
+  },
   "HOME" : {
     "TITLE" : "Sportarten",
     "STATS" : {
@@ -53,12 +61,17 @@
       "LANG"  : "Sprache"
     }
   },
-  "SPORT" : {
-    "BEACHVOLLEYBALL" : {
-      "TITLE" : "Beachvolleyball"
-    },
-    "TABLETENNIS" : {
-      "TITLE" : "Tischtennis"
+  "SPORTPAGE" : {
+    "ADD_GAME" : {
+      "TITLE"    : "Spiel hinzufügen",
+      "POINTS"   : "Punkte",
+      "YOURS"    : "Deine",
+      "OPPONENT" : "Gegner*in",
+      "CHOOSE_PLAYER" : "Spieler*in wählen",
+      "ERROR" : {
+        "POINTS" : "Gebe die Punkte ein",
+        "PLAYER" : "Wähle eine*n Spieler*in"
+      }
     }
   }
 }

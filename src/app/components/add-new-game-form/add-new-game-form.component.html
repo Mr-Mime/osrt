@@ -1,0 +1,36 @@
+<div class="wrapper">
+  <ion-text class="modal-title">
+    <h1>{{ 'SPORTPAGE.ADD_GAME.TITLE' | translate }}</h1>
+  </ion-text>
+
+  <ion-list lines="none">
+    <!-- Input for the points of user and opponent -->
+    <ion-item>
+      <ion-label>{{ 'SPORTPAGE.ADD_GAME.POINTS' | translate }}</ion-label>
+      <input [(ngModel)]="newGame.points" id="first"  type="number" [class.input-error]="formErrors.includes('points')" placeholder="{{ 'SPORTPAGE.ADD_GAME.YOURS' | translate }}">: 
+      <input [(ngModel)]="newGame.pointsOpponent"     type="number" [class.input-error]="formErrors.includes('pointsOpponent')" placeholder="{{ 'SPORTPAGE.ADD_GAME.OPPONENT' | translate }}">
+      <ion-note *ngIf="formErrors.includes('points') || formErrors.includes('pointsOpponent')" slot="helper">{{ 'SPORTPAGE.ADD_GAME.ERROR.POINTS' | translate }}</ion-note>
+    </ion-item>
+
+    <!-- Selection to select who was the opponent -->
+    <ion-item>
+      <ion-label>{{ 'SPORTPAGE.ADD_GAME.OPPONENT' | translate }}</ion-label>
+      <ion-select [(ngModel)]="newOpponentId" interface="popover" [class.input-error]="formErrors.includes('opponent')" placeholder="{{ 'SPORTPAGE.ADD_GAME.CHOOSE_PLAYER' | translate }}">
+        <ion-select-option *ngFor="let player of players" [value]="player.id">{{ player.name }}</ion-select-option>
+      </ion-select>
+      <ion-note *ngIf="formErrors.includes('opponent')" slot="helper">{{ 'SPORTPAGE.ADD_GAME.ERROR.PLAYER' | translate }}</ion-note>
+    </ion-item>
+  </ion-list>
+  
+  <!--  Cancel and Add button -->
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="cancel()" expand="full" fill="clear" size="small" class="modal-buttons">{{ 'GENERAL.CANCEL' | translate }}</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button (click)="confirm()" expand="full" fill="clear" size="small" class="modal-buttons">{{ 'GENERAL.ADD' | translate }}</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>

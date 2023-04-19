@@ -1,0 +1,55 @@
+// Set android specific variables
+.md {
+  --text-alignment: start;
+}
+
+// Set ios specific variables
+.ios {
+  --text-alignment: center;
+}
+
+// Title will be aligned based on the platform
+.modal-title {
+  text-align: var(--text-alignment);
+  color: var(--ion-text-color, #000);
+}
+
+// Cancel and Add button ad the bottom
+.modal-buttons {
+  --padding-start: 0px;
+  --padding-end: 0px;
+}
+
+/**
+ * As normal inputs are used over ion-input, wew need to style the field and border.
+ * They are rendered by the native web runtime and always follow the system theme.
+ * Thus we are setting the background.
+ */
+input {
+  border: 1.5px solid var(--ion-color-medium-tint);
+  border-radius: 3px;
+  background: var(--ion-item-background, var(--ion-background-color, #fff));
+}
+
+ion-item {
+  --highlight-background: var(--ion-color-primary);
+}
+
+.wrapper {
+  background: var(--ion-item-background, var(--ion-background-color, #fff));
+}
+
+
+/********************
+ * ERROR handling
+ ********************/
+// Used for notes indicating an error
+ion-note {
+  color: var(--ion-color-danger);
+}
+
+// Create an red border around fields with an error
+.input-error {
+  border: 1px solid var(--ion-color-danger);
+  border-radius: 3px;
+}

@@ -24,3 +24,25 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+
+ion-modal#custom-dialog-modal {
+  --width: fit-content;
+  --min-width: 250px;
+  --height: fit-content;
+  --border-radius: 6px;
+  --box-shadow: 0 28px 48px rgba(0, 0, 0, 0.4);
+}
+
+ion-modal#custom-dialog-modal h1 {
+  margin: 20px 20px 10px 20px;
+}
+
+ion-modal#custom-dialog-modal input {
+  width: 75px;
+  margin-left: 10px;
+
+  &#first {
+    margin-right: 10px;
+  }
+}
