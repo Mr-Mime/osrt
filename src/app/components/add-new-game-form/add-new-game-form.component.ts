@@ -50,8 +50,8 @@ export class AddNewGameFormComponent  implements OnInit {
     this.formErrors = [];
 
     // Check for errors
-    if (!this.newGame.points) this.formErrors.push("points"); 
-    if (!this.newGame.pointsOpponent) this.formErrors.push("pointsOpponent");
+    if (this.newGame.points == undefined) this.formErrors.push("points"); 
+    if (this.newGame.pointsOpponent == undefined) this.formErrors.push("pointsOpponent");
     if (!this.newOpponentId) this.formErrors.push("opponent");
   }
 
