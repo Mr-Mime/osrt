@@ -209,36 +209,6 @@ export class DatabaseService {
 
   
   /**
-   * Removes the table in which games for this sport are saved and the table connecting
-   * the games to players.  
-   * !!! After this all data related to this sport is lost !!!
-   * 
-   * @param shortCode The short code for which the data tables should be deleted
-   */
-  public async removeSportsTable(shortCode: string) {
-    var statement = `
-      DROP TABLE IF EXISTS ${shortCode};
-      DROP TABLE IF EXISTS ${shortCode}PlayerConnection;`;
-
-    await CapacitorSQLite.execute({database: "sqrt", statements: statement});
-  }
-
-
-  /**
-   * This will load all saved games for the given sport.
-   * 
-   * @param shortCode Short code of the sport for which all games should be returned
-   * @returns An array of all saved games for this sport
-   */
-  public async getAllGamesOfSport(shortCode: string): Promise<Array<Game>> {
-    var statement = `SELECT * FROM ${shortCode};`;
-
-    const ret = await CapacitorSQLite.query({ database: "sqrt", statement: statement, values: [] });
-    return ret.values!;
-  }
-
-  
-  /**
    * Add an game entry to the data table of the given sport.
    * Note that it will ignore the id, createdTime and lastModifiedTime fields.
    * 
@@ -289,5 +259,92 @@ export class DatabaseService {
     });
 
     return ret;
+  }
+
+  
+  /**
+   * Removes the table in which games for this sport are saved and the table connecting
+   * the games to players.  
+   * !!! After this all data related to this sport is lost !!!
+   * 
+   * @param shortCode The short code for which the data tables should be deleted
+   */
+  public async removeSportsTable(shortCode: string) {
+    var statement = `
+    DROP TABLE IF EXISTS ${shortCode}PlayerConnection;
+    DROP TABLE IF EXISTS ${shortCode};`;
+
+    await CapacitorSQLite.execute({database: "sqrt", statements: statement});
+  }
+
+
+  /**
+   * This will load all saved games for the given sport.
+   * 
+   * @param shortCode Short code of the sport for which all games should be returned
+   * @returns An array of all saved games for this sport
+   */
+  public async getAllGamesOfSport(shortCode: string): Promise<Array<Game>> {
+    var statement = `SELECT * FROM ${shortCode};`;
+
+    const ret = await CapacitorSQLite.query({database: "sqrt", statement: statement, values: []});
+    return ret.values!;
+  }
+
+
+  /**
+   * Get the number of games that were played for the given sport.
+   * 
+   * @param shortCode Short code of the sport for which the game count should be returned
+   * @returns Number representing the entries in the sports table
+   */
+  public async getNumberOfGamesOfSport(shortCode: string): Promise<any> {
+    var statement = `SELECT COUNT(*) as gameCount FROM ${shortCode};`;
+
+    const ret = await CapacitorSQLite.query({database: "sqrt", statement: statement, values: []});
+    return ret.values![0].gameCount;
+  }
+
+
+  /**
+   * Get the number of games that were won for the given sport.
+   * 
+   * @param shortCode Short code of the sport for which won count should be returned
+   * @returns Number representing the count of won games
+   */
+  public async getNumberOfWonGamesOfSport(shortCode: string): Promise<any> {
+    var statement = `SELECT COUNT(*) as wonCount FROM ${shortCode} WHERE won=1;`;
+
+    const ret = await CapacitorSQLite.query({database: "sqrt", statement: statement, values: []});
+    return ret.values![0].wonCount;
+  }
+
+
+  /**
+   * Get the total duration of games for the given sport.
+   * This will look at games where a duration is provided.
+   * 
+   * @param shortCode Short code of the sport for which duration should be returned
+   * @returns Number representing the duration of games in minutes
+   */
+  public async getDurationOfGamesOfSport(shortCode: string): Promise<any> {
+    var statement = `SELECT SUM(duration) as duration FROM ${shortCode} WHERE duration!=NULL;`;
+
+    const ret = await CapacitorSQLite.query({database: "sqrt", statement: statement, values: []});
+    return ret.values![0].duration;
+  }
+
+
+  /**
+   * Get the number of different players that were opponents for the given sport.
+   * 
+   * @param shortCode Short code of the sport for which the player count should be returned
+   * @returns Number representing the count of different players
+   */
+  public async getNumberOfOpponentsOfSport(shortCode: string): Promise<any> {
+    var statement = `SELECT COUNT(DISTINCT playerId) as playerCount FROM ${shortCode}PlayerConnection;`;
+
+    const ret = await CapacitorSQLite.query({database: "sqrt", statement: statement, values: []});
+    return ret.values![0].playerCount;
   }
 }

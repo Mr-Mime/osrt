@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { TranslateService } from '@ngx-translate/core';
+import { DatabaseService } from 'src/app/services/database.service';
+import { SupportedSportsType } from 'src/app/services/sport.service';
 
 @Component({
   selector: 'app-sport-card',
@@ -8,23 +10,29 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./sport-card.component.scss'],
 })
 export class SportCardComponent  implements OnInit {
-  @Input() hoursPlayed: number = 0;
+  @Input() sport!: SupportedSportsType;
+
   @Input() imagePath: string = "";
-  @Input() sportName: string = "";
   @Input() iconPath: string = "";
-  @Input() winrate: number = 0;
-  @Input() games: number = 0;
-  @Input() playerCount: number = 0;
+  
   @Input() isInEditMode: boolean = false;
   
   @Output() onDeleteSport = new EventEmitter();
 
 
+  hoursPlayed: number | undefined;
+  playerCount: number | undefined;
+  winrate: number | undefined;
+  games: number | undefined;
+
   constructor(
-    public translate: TranslateService
+    public translate: TranslateService,
+    private dbService: DatabaseService
   ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.loadGameInfo();
+  }
 
   /**
    * Emits an event when the delete button was pressed
@@ -33,4 +41,17 @@ export class SportCardComponent  implements OnInit {
     this.onDeleteSport.emit();
   }
 
+
+  private async loadGameInfo() {
+    this.games = await this.dbService.getNumberOfGamesOfSport(this.sport.short);
+    this.playerCount = await this.dbService.getNumberOfOpponentsOfSport(this.sport.short);
+    this.hoursPlayed = await this.dbService.getDurationOfGamesOfSport(this.sport.short) / 60;
+    
+    // Calculate winrate
+    var wonGames = await this.dbService.getNumberOfWonGamesOfSport(this.sport.short);
+    
+    if (wonGames != undefined && this.games != undefined) {
+      this.winrate = wonGames / this.games;
+    }
+  }
 }
