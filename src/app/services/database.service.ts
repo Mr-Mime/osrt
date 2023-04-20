@@ -62,16 +62,20 @@ export class DatabaseService {
    * Add a new player to the players table.
    * 
    * @param name The name of the new player that should be added
+   * @returns A promise resolving with an object containig number of changes and id of added entry
    */
-  public async addPlayer(name: string): Promise<any> {
-    var statement = `INSERT INTO players (name) VALUES ('${name}');`;
-    const ret = await CapacitorSQLite.execute({database: "sqrt", statements: statement})
+  public async addPlayer(name: string): Promise<capSQLiteChanges> {
+    var statement = `INSERT INTO players (name) VALUES (?);`;
+    var values    = [name];
     
-    if (ret.changes!.changes != 1) {
-      return Promise.reject("Failed to add player!");
-    }
+    // Execute the command on the database
+    const ret = await CapacitorSQLite.run({
+      database: "sqrt",
+      statement: statement,
+      values: values
+    });
 
-    return Promise.resolve();
+    return ret;
   }
 
 
@@ -105,7 +109,7 @@ export class DatabaseService {
   
   /**
    * Create the locations table.
-   * It will only be created if it does not exist already.
+   * It will only be created if it does not already exist.
    */
   private async createLocationsTable() {
     var statement = `CREATE TABLE IF NOT EXISTS locations (
@@ -123,16 +127,20 @@ export class DatabaseService {
    * Add a new location to the locations table.
    * 
    * @param name The name of the new location that should be added
+   * @returns A promise resolving with an object containig number of changes and id of added entry
    */
-  public async addLocation(name: string): Promise<any> {
-    var statement = `INSERT INTO locations (name) VALUES ('${name}');`;
-    const ret = await CapacitorSQLite.execute({database: "sqrt", statements: statement})
-    
-    if (ret.changes!.changes != 1) {
-      return Promise.reject("Failed to add location!");
-    }
+  public async addLocation(name: string): Promise<capSQLiteChanges> {
+    var statement = `INSERT INTO locations (name) VALUES (?);`;
+    var values    = [name];
 
-    return Promise.resolve();
+    // Execute the command on the database
+    const ret = await CapacitorSQLite.run({
+      database: "sqrt",
+      statement: statement,
+      values: values
+    });
+    
+    return ret;
   }
 
 
@@ -238,7 +246,7 @@ export class DatabaseService {
    * @param game An object containing all the game data to save
    * @returns The return code of the database execution containig the number of changes and the latest ID.
    */
-  public async addGameForSport(shortCode: string, game: Game) {
+  public async addGameForSport(shortCode: string, game: Game): Promise<capSQLiteChanges> {
     var statement = `INSERT INTO ${shortCode}
       (won,             points,           pointsOpponent,         startTime, 
        endTime,         duration,         location) VALUES (?,?,?,?,?,?,?);`;
