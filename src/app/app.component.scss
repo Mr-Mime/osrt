@@ -1,0 +1,28 @@
+ion-icon {
+  color: var(--ion-color-primary);
+}
+
+ion-item {
+  border-radius: 8px;
+  margin: 8px;
+
+  &.selected {
+    --background: var(--ion-color-primary);
+    color: var(--ion-color-primary-contrast);
+
+    ion-icon {
+      color: var(--ion-color-primary-contrast);
+    }
+  }
+}
+
+.line-divider {
+  border-bottom: 2px solid var(--ion-color-step-150);
+
+  width: auto;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  margin-left: 25px;
+  margin-right: 25px;
+  min-height: 0px;
+}

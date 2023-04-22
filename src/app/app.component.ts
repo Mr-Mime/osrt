@@ -33,10 +33,23 @@ export class AppComponent {
     // }
   ];
 
+  // Used to highlight the active route in the side menu
+  activeRoute: string = "home";
+
   constructor(
     private settings: SettingsService,
     private dbService: DatabaseService
   ) {
     this.dbService.initDataBase();
+  }
+
+
+  /**
+   * Set the active route
+   * 
+   * @param path Tha path which is active
+   */
+  public setActiveItem(path: string) {
+    this.activeRoute = path;
   }
 }
