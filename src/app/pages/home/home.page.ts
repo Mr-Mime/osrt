@@ -125,6 +125,9 @@ export class HomePage {
     sports.forEach(sport => {
       this.sportService.enableSport(sport);
     })
+
+    // Leave the edit mode
+    this.toggleEditMode();
   }
 
 }

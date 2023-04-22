@@ -322,7 +322,7 @@ export class DatabaseService {
 
   /**
    * Get the total duration of games for the given sport.
-   * This will look at games where a duration is provided.
+   * This will only look at games where a duration is provided.
    * 
    * @param shortCode Short code of the sport for which duration should be returned
    * @returns Number representing the duration of games in minutes
