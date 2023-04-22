@@ -17,12 +17,20 @@
 
 <ion-content [fullscreen]="true">
 
+  <!-- Information that gets shown if no sport is currently added -->
+  <div *ngIf="enabledSports.length == 0 && !isInEditMode" class="ion-text-center no-sport-added">
+    <h2>{{ 'HOME.NO_SPORT.TITLE' | translate }}</h2>
+    <p>{{ 'HOME.NO_SPORT.MSG1' | translate }}<br>{{ 'HOME.NO_SPORT.MSG2' | translate }}</p>
+  </div>
+
+  <!-- Button allowing to add an sport when in edit mode -->
   <div *ngIf="isInEditMode" class="add-button-wrapper">
     <ion-button (click)="openSportSelector()" shape="round">
       <ion-icon name="add-outline"></ion-icon>
     </ion-button>
   </div>
 
+  <!-- Sport cards displaying sports and their data -->
   <ng-container *ngFor="let sport of sportService.supportedSports; index as i">
     <app-sport-card 
       *ngIf="enabledSports.includes(sport.short)"

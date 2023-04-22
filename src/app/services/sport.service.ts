@@ -24,7 +24,7 @@ export class SportService {
     {short: "tt", transString: "SPORT.TABLETENNIS.TITLE"},
   ];
 
-  public enabledSports = new BehaviorSubject([""]);
+  public enabledSports: BehaviorSubject<Array<string>> = new BehaviorSubject(Array<string>(0));
 
   constructor(
     private dbService: DatabaseService
@@ -40,9 +40,9 @@ export class SportService {
     let entry = await Preferences.get({key: "sports_enabled"});
 
     // On first boot this is not set and we  set it to an empty string
-    if (entry.value == null) {
+    if (entry.value == null || entry.value == "") {
       Preferences.set({key: "sports_enabled", value: ""});
-      this.enabledSports.next([""]);
+      this.enabledSports.next([]);
     } else {
       // The entries are separated by a comma, thus we split and put them as single elements to an array
       let sportList = entry.value.split(",");

@@ -18,7 +18,7 @@ export class HomePage {
 
   // Variables for displaying sports
   enabledSportsSubscription;
-  enabledSports = [""];
+  enabledSports: Array<string> = [];
 
   constructor(
     private alertController: AlertController,

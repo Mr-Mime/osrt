@@ -15,6 +15,11 @@
   },
   "HOME" : {
     "TITLE" : "Sports",
+    "NO_SPORT" : {
+      "TITLE" : "No sport added",
+      "MSG1"   : "Currently no sport is added.",
+      "MSG2"   : "Press the edit icon in the upper right hand corner to add a sport and get started."
+    },
     "STATS" : {
       "GAMES" : "Games",
       "WINRATE": "Wins",
