@@ -17,8 +17,8 @@
     "TITLE" : "Sportarten",
     "NO_SPORT" : {
       "TITLE" : "Kein Sport hinzugefügt",
-      "MSG1"   : "Aktuell ist keine Sport hinzugefügt.",
-      "MSG2"   : "Drücke auf das Bearbeitensymbol in der oberen rechten Ecke und füge eine Sportart hinzu um loszulegen."
+      "MSG1"   : "Aktuell ist kein Sport hinzugefügt.",
+      "MSG2"   : "Drücke auf das Bearbeitensymbol in der oberen rechten Ecke und füge einen Sport hinzu um loszulegen."
     },
     "STATS" : {
       "GAMES" : "Spiele",
