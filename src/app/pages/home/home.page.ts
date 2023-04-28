@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, QueryList, ViewChildren } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController, AlertInput } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
 
+import { SportCardComponent } from 'src/app/components/sport-card/sport-card.component';
+
 // Services
-import { SportService, Sport, SupportedSportsType } from 'src/app/services/sport.service';
+import { SportService, SupportedSportsType } from 'src/app/services/sport.service';
 
 @Component({
   selector: 'app-home',
@@ -12,6 +14,7 @@ import { SportService, Sport, SupportedSportsType } from 'src/app/services/sport
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  @ViewChildren(SportCardComponent) sportCard!: QueryList<SportCardComponent>;
 
   // Variables for edit mode
   isInEditMode: boolean = false;
@@ -19,6 +22,7 @@ export class HomePage {
   // Variables for displaying sports
   enabledSportsSubscription;
   enabledSports: Array<string> = [];
+  sportCardData: any; 
 
   constructor(
     private alertController: AlertController,
@@ -39,6 +43,17 @@ export class HomePage {
    */
   public toggleEditMode() {
     this.isInEditMode = !this.isInEditMode;
+  }
+
+
+  /**
+   * Callback for when the page will open
+   */
+  ionViewWillEnter() {
+    // Tell all child components to reload their data
+    this.sportCard.forEach((child) => {
+      child.reloadData();
+    });
   }
 
 

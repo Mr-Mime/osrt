@@ -20,10 +20,10 @@ export class SportCardComponent  implements OnInit {
   @Output() onDeleteSport = new EventEmitter();
 
 
-  hoursPlayed: number | undefined;
-  playerCount: number | undefined;
-  winrate: number | undefined;
-  games: number | undefined;
+  @Input() hoursPlayed: number | undefined;
+  @Input() playerCount: number | undefined;
+  @Input() winrate: number | undefined;
+  @Input() games: number | undefined;
 
   constructor(
     public translate: TranslateService,
@@ -42,6 +42,17 @@ export class SportCardComponent  implements OnInit {
   }
 
 
+  /**
+   * Public function to allow parent component to initiate data reload.
+   */
+  public reloadData() {
+    this.loadGameInfo();
+  }
+
+
+  /**
+   * Loads all relevant informaiton for the sport from th database.
+   */
   private async loadGameInfo() {
     this.games = await this.dbService.getNumberOfGamesOfSport(this.sport.short);
     this.playerCount = await this.dbService.getNumberOfOpponentsOfSport(this.sport.short);
