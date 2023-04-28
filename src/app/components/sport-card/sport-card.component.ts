@@ -50,8 +50,10 @@ export class SportCardComponent  implements OnInit {
     // Calculate winrate
     var wonGames = await this.dbService.getNumberOfWonGamesOfSport(this.sport.short);
     
-    if (wonGames != undefined && this.games != undefined) {
+    if (wonGames != undefined && this.games != undefined && this.games != 0) {
       this.winrate = wonGames / this.games;
+    } else {
+      this.winrate = 0;
     }
   }
 }
