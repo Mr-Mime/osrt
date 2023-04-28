@@ -45,7 +45,7 @@
             <ion-icon name="trophy-outline" size="large"></ion-icon>
           </div>
           <div class="stats-wrapper">
-            <p>{{ winrate }}% {{ 'HOME.STATS.WINRATE' | translate }}</p>
+            <p>{{ winrate | number: '1.0-0' }}% {{ 'HOME.STATS.WINRATE' | translate }}</p>
           </div>
         </ion-col>
         <ion-col size="6">
