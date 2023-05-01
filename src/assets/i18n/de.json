@@ -31,7 +31,11 @@
         "TITLE" : "Sportskanone!",
         "MSG"   : "Es sind bereits alle Sportarten hinzugefügt."
       }
-    }  
+    },
+    "DELETE_SPORT" : {
+      "TITLE" : "{{sport}} löschen?",
+      "MSG"   : "Wenn {{sport}} von den Sportarten entfernt wird, werden alle zugehörigen Spiele gelöscht. Das wird auch Spielerstatistiken beeinflussen."
+    }
   },
   "PLAYERS" : {
     "TITLE" : "Spieler*innen",

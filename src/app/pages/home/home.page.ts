@@ -124,10 +124,29 @@ export class HomePage {
   /**
    * Deletes sport from list of enabled sports.
    * 
-   * @param shortCode Short code of the sport to delete
+   * @param sport Sport to delete
    */
-  public deleteSport(shortCode: string) {
-    this.sportService.disableSport(shortCode);
+  public async deleteSport(sport: SupportedSportsType) {
+    let alert: HTMLIonAlertElement;
+    let sportName = this.translate.instant(sport.transString);
+
+    alert = await this.alertController.create({
+      header:  this.translate.instant('HOME.DELETE_SPORT.TITLE', {sport: sportName}),
+      message: this.translate.instant('HOME.DELETE_SPORT.MSG', {sport: sportName}),
+      buttons: [
+        {
+          text: this.translate.instant('GENERAL.CANCEL'),
+          role: 'cancel'
+        },
+        {
+          text: this.translate.instant('GENERAL.DELETE'),
+          handler: () => this.sportService.disableSport(sport.short)
+        }
+      ],
+      cssClass: "wide-alert"
+    });
+
+    await alert.present();
   }
 
 

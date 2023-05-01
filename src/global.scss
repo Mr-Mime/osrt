@@ -46,3 +46,8 @@ ion-modal#custom-dialog-modal input {
     margin-right: 10px;
   }
 }
+
+
+ion-alert.wide-alert {
+  --min-width: 70%;
+}

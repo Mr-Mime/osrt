@@ -31,6 +31,10 @@
         "TITLE" : "Sporting ace!",
         "MSG"   : "All sports are already added."
       }
+    },
+    "DELETE_SPORT" : {
+      "TITLE" : "Delete {{sport}}?",
+      "MSG"   : "If you delete {{sport}} from the list of sports, all related games will be deleted. This will also affect player statistics."
     }
   },
   "PLAYERS" : {
