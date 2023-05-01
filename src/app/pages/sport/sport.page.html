@@ -10,12 +10,13 @@
 <ion-content>
   <!-- List of games -->
   <ion-list>
-    <app-game-card *ngFor="let game of games"
-      [points]="game.points"
-      [pointsOpponent]="game.pointsOpponent"
-      [duration]="game.duration"
-      [won]="game.won"
-      [location]="game.location">
+    <app-game-card *ngFor="let gameData of gamesData"
+      [points]="gameData.game.points"
+      [pointsOpponent]="gameData.game.pointsOpponent"
+      [duration]="gameData.game.duration"
+      [won]="gameData.game.won"
+      [location]="gameData.game.location"
+      [playerName]="gameData.playerName">
     </app-game-card>
   </ion-list>
 

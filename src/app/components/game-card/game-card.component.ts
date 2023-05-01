@@ -11,6 +11,7 @@ export class GameCardComponent  implements OnInit {
   @Input() duration: number = -1;
   @Input() won: boolean = false;
   @Input() location: string = "";
+  @Input() playerName: string = "";
 
 
   constructor() { }

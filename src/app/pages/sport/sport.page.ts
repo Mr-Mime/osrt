@@ -20,7 +20,8 @@ export class SportPage implements OnInit {
 
   activeSport!: SupportedSportsType;
 
-  games!: Array<any>;
+  // Array of elements combining an game and player
+  gamesData: Array<{game: any, playerName: string}> = [];
 
   constructor(
     private dbService: DatabaseService,
@@ -42,13 +43,23 @@ export class SportPage implements OnInit {
    * Load all saved games for the currently open sport
    */
   private async loadGames() {
+    // Load all games
     let g = await this.dbService.getAllGamesOfSport(this.activeSport.short);
-
-    this.games = g.sort((a,b) => {
+    
+    // Sort the games by id
+    g.sort((a,b) => {
       if (a.id < b.id) return 1;
       if (a.id > b.id) return -1;
       return 0;
     });
+
+    // Create objects and add them to the array of games data
+    g.forEach(async game => {
+      let playerID = await this.dbService.getPlayerIdFromGameId(this.activeSport.short, game.id);
+      let playerName = await this.dbService.getPlayerNameById(playerID);
+
+      this.gamesData.push({game: game, playerName: playerName});
+    })    
   }
 
 
@@ -77,12 +88,25 @@ export class SportPage implements OnInit {
   
       // Get the ID of the added game
       let id: number = ret.changes?.lastId ? ret.changes.lastId : -1;
+      data.game.id = id;
   
       // Add the player game conection
       this.dbService.addGamePlayerConnection(this.activeSport.short, id, data.playerId, true);
   
-      // Reload the list of games
-      this.loadGames();
+      // Add game to the local list
+      let playerName = await this.dbService.getPlayerNameById(data.playerId);
+      this.gamesData.push({game: data.game, playerName: playerName});
+
+      this.sortGamesList();
     }
+  }
+
+
+  /**
+   * Sorts the games by id.
+   * Highest id will be displayed on top.
+   */
+  private sortGamesList() {
+    this.gamesData.sort((a, b) => (a.game.id > b.game.id ? -1 : 1));
   }
 }

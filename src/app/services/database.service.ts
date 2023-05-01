@@ -102,6 +102,20 @@ export class DatabaseService {
   }
 
 
+  /**
+   * Retrieve the name of an player by its id.
+   * 
+   * @param playerId The id of the player
+   * @returns Name of the player
+   */
+  public async getPlayerNameById(playerId: number): Promise<string> {
+    const statement = `SELECT name FROM players WHERE id = ${playerId};`;
+    const ret = await CapacitorSQLite.query({ database: "sqrt", statement: statement, values: [] });
+
+    return ret.values![0].name;
+  }
+
+
 
   /**************************************************************************
    * Location FUNCTIONS
@@ -346,5 +360,20 @@ export class DatabaseService {
 
     const ret = await CapacitorSQLite.query({database: "sqrt", statement: statement, values: []});
     return ret.values![0].playerCount;
+  }
+
+
+  /**
+   * Get the id of an player, who was the opponent in the given game.
+   * 
+   * @param shortCode Short code of the sport which the game is from
+   * @param gameId The id of the game
+   * @returns The players id, who was opponent in the game
+   */
+  public async getPlayerIdFromGameId(shortCode: string, gameId: number): Promise<number> {
+    var statement = `SELECT playerId FROM ${shortCode}PlayerConnection WHERE gameId=${gameId};`;
+
+    const ret = await CapacitorSQLite.query({database: "sqrt", statement: statement, values: []});
+    return ret.values![0].playerId;
   }
 }
