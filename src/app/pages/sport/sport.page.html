@@ -16,7 +16,8 @@
       [duration]="gameData.game.duration"
       [won]="gameData.game.won"
       [location]="gameData.game.location"
-      [playerName]="gameData.playerName">
+      [playerName]="gameData.playerName"
+      [date]="(gameData.game.startTime) ? gameData.game.startTime : gameData.game.createTime">
     </app-game-card>
   </ion-list>
 

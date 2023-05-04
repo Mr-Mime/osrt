@@ -1,21 +1,16 @@
 <ion-item>
   <ion-icon name="trophy-outline" slot="start" [class.won]="won"></ion-icon>
   <ion-label>
-    <h1>{{ points }}:{{ pointsOpponent }} - {{ duration }}min</h1>
+    <h1><b>{{ points }}:{{ pointsOpponent }}</b> - {{ duration }}min</h1>
     <div class="stat-line">
+      <span class="single-stat flex-wrap">
+        <ion-icon name="time-outline"></ion-icon>
+        {{ formattedDate }}
+      </span>
+      
       <span class="single-stat flex-wrap">
         <ion-icon name="person"></ion-icon>
         {{ playerName }}
-      </span>
-
-      <span class="single-stat flex-wrap">
-        <ion-icon name="trophy-outline"></ion-icon>
-        test2
-      </span>
-
-      <span class="single-stat flex-wrap">
-        <ion-icon name="time-outline"></ion-icon>
-        23min
       </span>
     </div>
   </ion-label>

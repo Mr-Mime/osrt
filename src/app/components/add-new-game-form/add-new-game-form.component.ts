@@ -90,12 +90,12 @@ export class AddNewGameFormComponent  implements OnInit {
       won: won,
       points: this.newGame.points,
       pointsOpponent: this.newGame.pointsOpponent,
-      startTime: 1,
-      endTime: 10,
-      duration: 9,
+      startTime: null,
+      endTime: null,
+      duration: null,
       location: null,
-      createTime: -1,     // needs to be set as needed by the type, not used for adding the game
-      lastEditTime: -1    // needs to be set as needed by the type, not used for adding the game
+      createTime: Date.now()/1000,
+      lastEditTime: Date.now()/1000
     };
 
     return this.modalCtrl.dismiss({game: game, playerId: this.newOpponentId}, 'confirm');
