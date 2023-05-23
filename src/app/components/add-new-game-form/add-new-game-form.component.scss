@@ -39,6 +39,9 @@ ion-item {
   background: var(--ion-item-background, var(--ion-background-color, #fff));
 }
 
+ion-datetime {
+  color: var(--ion-text-color, #000);
+}
 
 /********************
  * ERROR handling

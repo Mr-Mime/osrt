@@ -80,6 +80,13 @@
       "ERROR" : {
         "POINTS" : "Please enter the points",
         "PLAYER" : "Please choose an player"
+      },
+      "ADVANCED" : {
+        "TITLE" : "Advanced",
+        "TIME"  : "Start & End time",
+        "START" : "Start",
+        "END"   : "End",
+        "NOW"   : "Now"
       }
     }
   }

@@ -21,6 +21,35 @@
       <ion-note *ngIf="formErrors.includes('opponent')" slot="helper">{{ 'SPORTPAGE.ADD_GAME.ERROR.PLAYER' | translate }}</ion-note>
     </ion-item>
   </ion-list>
+
+  <ion-accordion-group>
+    <ion-accordion value="advanced">
+      <ion-item slot="header">
+        <ion-label>{{ 'SPORTPAGE.ADD_GAME.ADVANCED.TITLE' | translate }}</ion-label>
+      </ion-item>
+      <div slot="content">
+        <ion-accordion-group>
+          <ion-accordion value="times">
+            <ion-item slot="header" (click)="timesClicked($event)">
+              <ion-label>{{ 'SPORTPAGE.ADD_GAME.ADVANCED.TIME' | translate }}</ion-label>
+              <ion-checkbox [checked]="includeTimes"></ion-checkbox>
+            </ion-item>
+            <div slot="content">
+              <ion-item>
+                <ion-label>{{ 'SPORTPAGE.ADD_GAME.ADVANCED.START' | translate }}</ion-label>
+                <ion-datetime-button datetime="startDatetime"></ion-datetime-button>
+              </ion-item>
+      
+              <ion-item>
+                <ion-label>{{ 'SPORTPAGE.ADD_GAME.ADVANCED.END' | translate }}</ion-label>
+                <ion-datetime-button datetime="endDatetime"></ion-datetime-button>
+              </ion-item>
+            </div>
+          </ion-accordion>
+        </ion-accordion-group>
+      </div>
+    </ion-accordion>
+  </ion-accordion-group>
   
   <!--  Cancel and Add button -->
   <ion-grid>
@@ -33,4 +62,28 @@
       </ion-col>
     </ion-row>
   </ion-grid>
+
+  <ion-modal [keepContentsMounted]="true">
+    <ng-template>
+      <ion-datetime #startDateTimePicker id="startDatetime" [(ngModel)]="startDate">
+        <ion-buttons slot="buttons">
+          <ion-button color="danger" (click)="setTimeToNow(startDateTimePicker, 0)">{{ 'SPORTPAGE.ADD_GAME.ADVANCED.NOW' | translate }}</ion-button>
+          <ion-button color="primary" (click)="startDateTimePicker.cancel(true)">{{ 'GENERAL.CANCEL' | translate }}</ion-button>
+          <ion-button color="primary" (click)="startDateTimePicker.confirm(true)">{{ 'GENERAL.OK' | translate }}</ion-button>
+        </ion-buttons>
+      </ion-datetime>
+    </ng-template>
+  </ion-modal>
+
+  <ion-modal [keepContentsMounted]="true">
+    <ng-template>
+      <ion-datetime #endDateTimePicker id="endDatetime" [(ngModel)]="endDate">
+        <ion-buttons slot="buttons">
+          <ion-button color="danger" (click)="setTimeToNow(endDateTimePicker, 1)">{{ 'SPORTPAGE.ADD_GAME.ADVANCED.NOW' | translate }}</ion-button>
+          <ion-button color="primary" (click)="endDateTimePicker.cancel(true)">{{ 'GENERAL.CANCEL' | translate }}</ion-button>
+          <ion-button color="primary" (click)="endDateTimePicker.confirm(true)">{{ 'GENERAL.OK' | translate }}</ion-button>
+        </ion-buttons>
+      </ion-datetime>
+    </ng-template>
+  </ion-modal>
 </div>

@@ -80,6 +80,13 @@
       "ERROR" : {
         "POINTS" : "Gebe die Punkte ein",
         "PLAYER" : "Wähle eine*n Spieler*in"
+      },
+      "ADVANCED" : {
+        "TITLE" : "Erweitert",
+        "TIME"  : "Start- & Endzeit",
+        "START" : "Start",
+        "END"   : "Ende",
+        "NOW"   : "Jetzt"
       }
     }
   }
