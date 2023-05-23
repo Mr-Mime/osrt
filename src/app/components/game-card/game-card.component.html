@@ -1,7 +1,7 @@
 <ion-item>
   <ion-icon name="trophy-outline" slot="start" [class.won]="won"></ion-icon>
   <ion-label>
-    <h1><b>{{ points }}:{{ pointsOpponent }}</b> - {{ duration }}min</h1>
+    <h1><b>{{ points }}:{{ pointsOpponent }}</b> - {{ duration / 60 }}min</h1>
     <div class="stat-line">
       <span class="single-stat flex-wrap">
         <ion-icon name="time-outline"></ion-icon>
