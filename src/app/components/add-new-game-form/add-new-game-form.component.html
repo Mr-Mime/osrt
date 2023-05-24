@@ -35,15 +35,18 @@
               <ion-checkbox [checked]="includeTimes"></ion-checkbox>
             </ion-item>
             <div slot="content">
-              <ion-item>
-                <ion-label>{{ 'SPORTPAGE.ADD_GAME.ADVANCED.START' | translate }}</ion-label>
-                <ion-datetime-button datetime="startDatetime"></ion-datetime-button>
-              </ion-item>
-      
-              <ion-item>
-                <ion-label>{{ 'SPORTPAGE.ADD_GAME.ADVANCED.END' | translate }}</ion-label>
-                <ion-datetime-button datetime="endDatetime"></ion-datetime-button>
-              </ion-item>
+              <ion-list lines="none">
+                <ion-item>
+                  <ion-label>{{ 'SPORTPAGE.ADD_GAME.ADVANCED.START' | translate }}</ion-label>
+                  <ion-datetime-button datetime="startDatetime"></ion-datetime-button>
+                </ion-item>
+        
+                <ion-item>
+                  <ion-label>{{ 'SPORTPAGE.ADD_GAME.ADVANCED.END' | translate }}</ion-label>
+                  <ion-datetime-button datetime="endDatetime"></ion-datetime-button>
+                  <ion-note *ngIf="formErrors.includes('time')" slot="helper">{{ 'SPORTPAGE.ADD_GAME.ERROR.TIME' | translate }}</ion-note>
+                </ion-item>
+              </ion-list>
             </div>
           </ion-accordion>
         </ion-accordion-group>

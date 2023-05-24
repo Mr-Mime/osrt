@@ -79,7 +79,8 @@
       "CHOOSE_PLAYER" : "Choose player",
       "ERROR" : {
         "POINTS" : "Please enter the points",
-        "PLAYER" : "Please choose an player"
+        "PLAYER" : "Please choose an player",
+        "TIME"   : "End can not be earlier than start"
       },
       "ADVANCED" : {
         "TITLE" : "Advanced",

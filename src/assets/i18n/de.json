@@ -79,7 +79,8 @@
       "CHOOSE_PLAYER" : "Spieler*in wählen",
       "ERROR" : {
         "POINTS" : "Gebe die Punkte ein",
-        "PLAYER" : "Wähle eine*n Spieler*in"
+        "PLAYER" : "Wähle eine*n Spieler*in",
+        "TIME"   : "Endzeit kann nicht vor Startzeit liegen"
       },
       "ADVANCED" : {
         "TITLE" : "Erweitert",

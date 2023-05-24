@@ -64,6 +64,7 @@ export class AddNewGameFormComponent  implements OnInit {
     if (this.newGame.points == undefined) this.formErrors.push("points"); 
     if (this.newGame.pointsOpponent == undefined) this.formErrors.push("pointsOpponent");
     if (!this.newOpponentId) this.formErrors.push("opponent");
+    if (this.endDate < this.startDate && this.includeTimes) this.formErrors.push("time");
   }
 
 
