@@ -70,7 +70,7 @@
     <ng-template>
       <ion-datetime #startDateTimePicker id="startDatetime" [(ngModel)]="startDate">
         <ion-buttons slot="buttons">
-          <ion-button color="danger" (click)="setTimeToNow(startDateTimePicker, 0)">{{ 'SPORTPAGE.ADD_GAME.ADVANCED.NOW' | translate }}</ion-button>
+          <ion-button color="primary" (click)="setTimeToNow(startDateTimePicker, 0)">{{ 'SPORTPAGE.ADD_GAME.ADVANCED.NOW' | translate }}</ion-button>
           <ion-button color="primary" (click)="startDateTimePicker.cancel(true)">{{ 'GENERAL.CANCEL' | translate }}</ion-button>
           <ion-button color="primary" (click)="startDateTimePicker.confirm(true)">{{ 'GENERAL.OK' | translate }}</ion-button>
         </ion-buttons>
@@ -82,7 +82,7 @@
     <ng-template>
       <ion-datetime #endDateTimePicker id="endDatetime" [(ngModel)]="endDate">
         <ion-buttons slot="buttons">
-          <ion-button color="danger" (click)="setTimeToNow(endDateTimePicker, 1)">{{ 'SPORTPAGE.ADD_GAME.ADVANCED.NOW' | translate }}</ion-button>
+          <ion-button color="primary" (click)="setTimeToNow(endDateTimePicker, 1)">{{ 'SPORTPAGE.ADD_GAME.ADVANCED.NOW' | translate }}</ion-button>
           <ion-button color="primary" (click)="endDateTimePicker.cancel(true)">{{ 'GENERAL.CANCEL' | translate }}</ion-button>
           <ion-button color="primary" (click)="endDateTimePicker.confirm(true)">{{ 'GENERAL.OK' | translate }}</ion-button>
         </ion-buttons>
