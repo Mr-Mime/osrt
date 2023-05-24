@@ -22,6 +22,7 @@ export class AddNewGameFormComponent  implements OnInit {
   formErrors: Array<string> = []; // List of present errors
   startDate!: string;
   endDate!: string;
+  advancedExpanded = false;
 
   includeTimes: boolean = false;
 
@@ -180,5 +181,13 @@ export class AddNewGameFormComponent  implements OnInit {
         ':' + pad(d.getSeconds()) +
         dif + pad(Math.floor(Math.abs(tzo) / 60)) +
         ':' + pad(Math.abs(tzo) % 60);
+  }
+
+
+  /**
+   * Callback for when the "advanced" item has been clicked
+   */
+  public advancedClicked() {
+    this.advancedExpanded = !this.advancedExpanded;
   }
 }

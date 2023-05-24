@@ -24,7 +24,7 @@
 
   <ion-accordion-group>
     <ion-accordion value="advanced">
-      <ion-item slot="header">
+      <ion-item slot="header" (click)="advancedClicked()" [class.input-error]="formErrors.includes('time') && !advancedExpanded">
         <ion-label>{{ 'SPORTPAGE.ADD_GAME.ADVANCED.TITLE' | translate }}</ion-label>
       </ion-item>
       <div slot="content">
