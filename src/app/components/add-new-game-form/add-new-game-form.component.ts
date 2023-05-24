@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 // Ionic imports
 import { IonDatetime, ModalController } from '@ionic/angular';
@@ -25,6 +26,7 @@ export class AddNewGameFormComponent  implements OnInit {
   includeTimes: boolean = false;
 
   constructor(
+    public translate: TranslateService,
     private dbService: DatabaseService,
     private modalCtrl: ModalController
   ) { }
