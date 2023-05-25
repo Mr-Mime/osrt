@@ -105,7 +105,7 @@ export class SettingsService {
 
 
   /**
-   * Callback to react to a systemwide theme change.
+   * Callback to react to a system wide theme change.
    * It will only enable/disable the dark theme in the app, if it is set to follow the system setting.
    * 
    * @param isDark Wether the theme changed to 'dark' or not
