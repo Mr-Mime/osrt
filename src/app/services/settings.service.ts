@@ -91,14 +91,15 @@ export class SettingsService {
     // Load saved preference
     Preferences.get({key: 'setting_theme'})
     .then(entry => {
-      // On first boot when this is not set, we default to dark theme.
+      // On first boot when this is not set, we default to system theme.
       if (entry.value == null) {
-        this.selectedThemeSetting = ThemeSetting.DARK;
-        Preferences.set({key: 'setting_theme', value: ThemeSetting.DARK + ""}); // Converting the settings to string
+        this.selectedThemeSetting = ThemeSetting.SYSTEM;
+        Preferences.set({key: 'setting_theme', value: ThemeSetting.SYSTEM + ""}); // Converting the settings to string
       } else {
         this.selectedThemeSetting = parseInt(entry.value);
-        this.updateThemeSetting(this.selectedThemeSetting);
       }
+      // Apply setting
+      this.updateThemeSetting(this.selectedThemeSetting);
     });
   }
 
