@@ -26,11 +26,11 @@ export class AppComponent {
       path: 'settings',
       icon: 'settings-sharp'
     },
-    // {
-    //   name: 'ABOUT.TITLE',
-    //   path: 'about',
-    //   icon: 'information-circle-outline'
-    // }
+    {
+      name: 'ABOUT.TITLE',
+      path: 'about',
+      icon: 'information-circle-outline'
+    }
   ];
 
   // Used to highlight the active route in the side menu

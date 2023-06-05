@@ -70,6 +70,24 @@
       "LANG"  : "Language"
     }
   },
+  "ABOUT" : {
+    "TITLE" : "About",
+    "CONTRIBUTORS" : {
+      "TITLE" : "Contributors",
+      "MAIN"  : "Main Developer",
+      "OTHERS": "Others"
+    },
+    "PRIVACY" : {
+      "TITLE" : "Privacy policy",
+      "INTRODUCTION"   : "Nice that you are stopping by, if data privacy is relevant for you, the following will please you... ",
+      "DATA_HEADER"    : "Collected data",
+      "DATA_TEXT"      : ["Most importantly: <b>ALL</b> data stays locally stored.<br><br>",
+                          "The only stored data, is the one you are creating manually. So to say all games, sports and players you create.",
+                          "These will not be sent to an server at any time and remain only on you local device."],
+      "TRACKING_HEADER" : "Tracking and analysis tools",
+      "TRACKING_TEXT"   : "... are not used nor wanted. Nobody likes data leeches."
+    }
+  },
   "SPORTPAGE" : {
     "ADD_GAME" : {
       "TITLE"    : "Add game",

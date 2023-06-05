@@ -70,6 +70,24 @@
       "LANG"  : "Sprache"
     }
   },
+  "ABOUT" : {
+    "TITLE" : "Über",
+    "CONTRIBUTORS" : {
+      "TITLE" : "Mitwirkende",
+      "MAIN"  : "Hauptentwickler",
+      "OTHERS": "Weitere"
+    },
+    "PRIVACY" : {
+      "TITLE" : "Datenschutzerklärung",
+      "INTRODUCTION"   : "Schön dass du vorbei guckst, wenn Datenschutz für dich eine hohe Priorität hat, wird dich Folgendes freuen... ",
+      "DATA_HEADER"    : "Anfallende Daten",
+      "DATA_TEXT"      : ["Das wichtigste vorweg: <b>ALLE</b> Daten bleiben lokal gespeichert.<br><br>",
+                          "Es fallen nur die Daten an die du auch selbst siehst, sprich Daten zu den Spielen, Sportarten und Mitspielenden.",
+                          "Diese Daten werden zu keinem Zeitpunkt an einen Server übertragen und bleiben nur lokal gespeichert."],
+      "TRACKING_HEADER" : "Tracking- und Analysewerkzeuge",
+      "TRACKING_TEXT"   : "... werden nicht benutzt und sind unerwünscht. Keiner mag Datenkraken."
+    }
+  },
   "SPORTPAGE" : {
     "ADD_GAME" : {
       "TITLE"    : "Spiel hinzufügen",
